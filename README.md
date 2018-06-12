@@ -47,7 +47,7 @@ unless ENV['RS_PROVISION'] == 'no' or ENV['BEAKER_provision'] == 'no'
   run_puppet_install_helper
 
   # Clone module dependencies
-  KpnCompressCopyModules.clone_dependent_modules
+  KpnSpecMethods.clone_dependent_modules
 end
 ```
 
@@ -68,7 +68,7 @@ RSpec.configure do |c|
   # Configure all nodes in nodeset
   c.before :suite do
     # Install dependent modules
-    KpnCompressCopyModules.install_dependent_modules
+    KpnSpecMethods.install_dependent_modules
 
     # Install module
     puppet_module_install(:source => proj_root, :module_name => 'profile_windows')
