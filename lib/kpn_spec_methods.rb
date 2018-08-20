@@ -70,7 +70,7 @@ module KpnSpecMethods
     system(compress_command)
 
     # Copy the archive to machine
-    copy_module_to(hosts, source: 'archive', module_name: 'modulesarchive') if File.file?('archive/modules.tar' || 'archive/modules.zip')
+    copy_module_to(hosts, source: 'archive', module_name: 'modulesarchive') if File.file?('archive/modules.tar') || File.file?('archive/modules.zip')
     hosts.each do |host|
       on host, extract_command
     end
