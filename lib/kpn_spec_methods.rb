@@ -11,7 +11,7 @@ module KpnSpecMethods
         else
           value
         end
-        ref =
+      ref =
         if value.is_a?(Hash) and value.has_key?('ref')
           "--branch  #{value['ref']}"
         else
