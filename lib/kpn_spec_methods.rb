@@ -11,13 +11,13 @@ module KpnSpecMethods
         else
           value
         end
-      ref =
+        ref =
         if value.is_a?(Hash) and value.has_key?('ref')
-          value['ref']
+          "--branch  #{value['ref']}"
         else
-          'master'
+          ''
         end
-      system("git clone --branch #{ref} #{ssh_link} spec/fixtures/modules/#{module_name}")
+      system("git clone --single-branch #{ref} #{ssh_link} spec/fixtures/modules/#{module_name}")
     end
   end
 
